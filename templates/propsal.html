@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+    <title>Song Analyzer</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script>
+
+    </script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        a.bar {
+            background-color: lightgrey;
+            color: black;
+            font-size: 30px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-left: 13px;
+            padding-right: 13px;
+
+        }
+
+        .nav {
+            background-color: grey;
+            margin-bottom: 15px
+        }
+
+        a.active {
+            background-color: darkgrey;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="container ">
+            <a class="bar" href="/">Home</a>
+            <a class="bar" href="{{ url_for('songs') }}">Songs</a>
+            <a class="bar" href="{{ url_for('years') }}">Years</a>
+            <a class="bar active" href="{{ url_for('propsal') }}">Project Proposal</a>
+            <a class="bar" href="{{ url_for('writeup') }}">Writeup</a>
+            <div style="float: right; text-align: right; color: white">
+                <h1>By: Alvie Stoddard</h1>
+                <h5>for Problem Solving and Software Design</h5>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <p> For my final project, I would like to build on my Assignment 2 and create a web app for it while increasing
+            the complexity. My Assignment 2 was an app that compared the sentiment of 10 different songs. It compared
+            the top five songs from 1969 to the top songs from 2019, a 50 year gap. To increase the complexity, I would
+            like the users to choose the years (two years would still be required). The user would also be able to
+            select the amount of songs so would not be constrained to just 5 songs, probably with a max of 20 or so
+            (likely limited by the API I am able to find). If the user wanted to choose and compare specific songs
+            instead of the top songs from a period, they would also be able to select using the song name.
+
+        </p>
+        <p> I would also like to look at other sentiment analysis tools to see which one is the most accurate as I am
+            not sure how accurate NLTK sentiment analysis is for songs since they often have nuanced meanings. This may
+            end up being only an investigation as NLTK analysis may currently be the correct or best tool.
+
+        </p>
+        <p> My final deliverable would be a website and web server that offers this functionality, offering the user to
+            choose songs or years to compare. I would like to investigate Django for the server to see if it would
+            enable me to offer any additional functionality as well.
+        </p>
+
+    </div>
+    <script>
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+</html>

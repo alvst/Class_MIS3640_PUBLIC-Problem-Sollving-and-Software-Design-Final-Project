@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Song Analyzer</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script>
+
+    </script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        a.bar {
+            background-color: lightgrey;
+            color: black;
+            font-size: 30px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-left: 13px;
+            padding-right: 13px;
+
+        }
+
+        .nav {
+            background-color: grey;
+            margin-bottom: 15px
+        }
+
+        a.active {
+            background-color: darkgrey;
+        }
+        .space{
+        padding-right: 20px
+      }
+      label{
+          text-emphasis: none;
+          font-size: 12px;
+      }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="container">
+            <a class="bar" href="/">Home</a>
+            <a class="bar active" href="{{ url_for('songs') }}">Songs</a>
+            <a class="bar" href="{{ url_for('years') }}">Years</a>
+            <a class="bar" href="{{ url_for('propsal') }}">Project Proposal</a>
+            <a class="bar" href="{{ url_for('writeup') }}">Writeup</a>
+            <div style="float: right; text-align: right; color: white">
+                <h1>By: Alvie Stoddard</h1>
+                <h5>for Problem Solving and Software Design</h5>
+            </div>
+        </div>
+    </nav>
+    <form method="POST" name="songsform">
+        <div class="container" style="text-align: center">
+            <h2 style="font-size: 2.5em;">What do you want to do?</h2>
+            <!-- <h3 style=" text-align: center; margin-top: 10px">(Choose up to 10 songs for each column)</h3> -->
+            <label class="space"><input type="checkbox" name="Explicit">   Explicit   </label> 
+            <label class="space"><input type="checkbox" name="SentimentAnalysis">    Sentiment Analysis   </label>
+            <label>Search for a word<input type="text" name="word" /></label>
+        </div>
+        <div class="container">
+            <h2 style="font-size: 2.5em; text-align: center">What songs would you like to compare?</h2>
+            <h3 style=" text-align: center; margin-top: 10px">(Choose up to 10 songs for each column)</h3>
+
+            <div class="col-lg-6" style="text-align: center;">
+                <label>
+                    <h2>Name of the List <span style="font-size: 25px">(optional)</span>: </h2>
+                </label><br><input type="text" name="list-1-name" />
+
+            </div>
+            <div class="col-lg-6" style="text-align: center;">
+                <label>
+                    <h2>Name of the List <span style="font-size: 25px">(optional)</span>: </h2>
+                </label><br><input type="text" name="list-2-name" />
+            </div>
+            <div class="col-lg-3">
+                <h3>Song Name</h3>
+                <!-- <label>name of the list (optional):</label><input type="text" /> -->
+
+                <label>song 1:</label>
+                <!-- <p class="1"><input type='text'></p> -->
+                <p class="1"><input type='text' name="song-col-1-0"></p>
+                <p class="2" style="display: none"><label>song 2 (optional):</label><br><input type='text'
+                        name="song-col-1-1"></p>
+                <p class="3" style="display: none"><label>song 3 (optional):</label><br><input type='text'
+                        name="song-col-1-2"></p>
+                <p class="4" style="display: none"><label>song 4 (optional):</label><br><input type='text'
+                        name="song-col-1-3"></p>
+                <p class="5" style="display: none"><label>song 5 (optional):</label><br><input type='text'
+                        name="song-col-1-4"></p>
+                <p class="6" style="display: none"><label>song 6 (optional):</label><br><input type='text'
+                        name="song-col-1-5"></p>
+                <p class="7" style="display: none"><label>song 7 (optional):</label><br><input type='text'
+                        name="song-col-1-6"></p>
+                <p class="8" style="display: none"><label>song 8 (optional):</label><br><input type='text'
+                        name="song-col-1-7"></p>
+                <p class="9" style="display: none"><label>song 9 (optional):</label><br><input type='text'
+                        name="song-col-1-8"></p>
+                <p class="10" style="display: none"><label>song 10 (optional):</label><br><input type='text'
+                        name="song-col-1-9"></p>
+
+                <!-- <div id='log'></div> -->
+
+            </div>
+            <div class="col-lg-3">
+                <h3>Song Artist</h3>
+                <!-- <div style="visibility: hidden"><label>name (optional):</label><input type="text" /></div> -->
+                <!-- <label>song 1:</label> -->
+                <!-- <p id="1"><input type='text'></p> -->
+                <label>song 1 artist:</label>
+                <p class="1"><input type='text' name="artist-col-1-0"></p>
+                <p class="2" style="display: none"><label>song 2 artist (optional):</label><br><input type='text'
+                        name="artist-col-1-1"></p>
+                <p class="3" style="display: none"><label>song 3 artist (optional):</label><br><input type='text'
+                        name="artist-col-1-2"></p>
+                <p class="4" style="display: none"><label>song 4 artist (optional):</label><br><input type='text'
+                        name="artist-col-1-3"></p>
+                <p class="5" style="display: none"><label>song 5 artist (optional):</label><br><input type='text'
+                        name="artist-col-1-4"></p>
+                <p class="6" style="display: none"><label>song 6 artist (optional):</label><br><input type='text'
+                        name="artist-col-1-5"></p>
+                <p class="7" style="display: none"><label>song 7 artist (optional):</label><br><input type='text'
+                        name="artist-col-1-6"></p>
+                <p class="8" style="display: none"><label>song 8 artist (optional):</label><br><input type='text'
+                        name="artist-col-1-7"></p>
+                <p class="9" style="display: none"><label>song 9 artist (optional):</label><br><input type='text'
+                        name="artist-col-1-8"></p>
+                <p class="10" style="display: none"><label>song 10 artist (optional):</label><br><input type='text'
+                        name="artist-col-1-9"></p>
+
+                <!-- <div id='log'></div> -->
+            </div>
+            <div class="col-lg-3">
+                <h3>Song Name</h3>
+                <!-- <label>name of the list (optional):</label><input type="text" /> -->
+                <label>song 1:</label>
+                <!-- <p class="1"><input type='text'></p> -->
+                <p class="1"><input type='text' name="song-col-2-0"></p>
+                <p class="2" style="display: none"><label>song 2 (optional):</label><br><input type='text'
+                        name="song-col-2-1"></p>
+                <p class="3" style="display: none"><label>song 3 (optional):</label><br><input type='text'
+                        name="song-col-2-2"></p>
+                <p class="4" style="display: none"><label>song 4 (optional):</label><br><input type='text'
+                        name="song-col-2-3"></p>
+                <p class="5" style="display: none"><label>song 5 (optional):</label><br><input type='text'
+                        name="song-col-2-4"></p>
+                <p class="6" style="display: none"><label>song 6 (optional):</label><br><input type='text'
+                        name="song-col-2-5"></p>
+                <p class="7" style="display: none"><label>song 7 (optional):</label><br><input type='text'
+                        name="song-col-2-6"></p>
+                <p class="8" style="display: none"><label>song 8 (optional):</label><br><input type='text'
+                        name="song-col-2-7"></p>
+                <p class="9" style="display: none"><label>song 9 (optional):</label><br><input type='text'
+                        name="song-col-2-8"></p>
+                <p class="10" style="display: none"><label>song 10 (optional):</label><br><input type='text'
+                        name="song-col-2-9"></p>
+
+                <!-- <div id='log'></div> -->
+            </div>
+            <div class="col-lg-3">
+                <h3>Song Artist</h3>
+                <!-- <label>name (optional):</label><input type="text" /> -->
+                <!-- <div style="visibility: hidden"><label>name (optional):</label><input type="text" /></div> -->
+
+                <!-- <label>song 1:</label> -->
+                <!-- <p id="1"><input type='text'></p> -->
+                <label>song 1 artist:</label>
+                <p class="1"><input type='text' name="artist-col-2-0"></p>
+                <p class="2" style="display: none"><label>song 2 artist (optional):</label><br><input type='text'
+                        name="artist-col-2-1"></p>
+                <p class="3" style="display: none"><label>song 3 artist (optional):</label><br><input type='text'
+                        name="artist-col-2-2"></p>
+                <p class="4" style="display: none"><label>song 4 artist (optional):</label><br><input type='text'
+                        name="artist-col-2-3"></p>
+                <p class="5" style="display: none"><label>song 5 artist (optional):</label><br><input type='text'
+                        name="artist-col-2-4"></p>
+                <p class="6" style="display: none"><label>song 6 artist (optional):</label><br><input type='text'
+                        name="artist-col-2-5"></p>
+                <p class="7" style="display: none"><label>song 7 artist (optional):</label><br><input type='text'
+                        name="artist-col-2-6"></p>
+                <p class="8" style="display: none"><label>song 8 artist (optional):</label><br><input type='text'
+                        name="artist-col-2-7"></p>
+                <p class="9" style="display: none"><label>song 9 artist (optional):</label><br><input type='text'
+                        name="artist-col-2-8"></p>
+                <p class="10" style="display: none"><label>song 10 artist (optional):</label><br><input type='text'
+                        name="artist-col-2-9"></p>
+
+                <!-- <div id='log'></div> -->
+
+
+                <!-- </form> -->
+            </div>
+            <input class="btn col-12" type="submit" value="Analyze" style="background-color: black; color: white; font-size: 25px">
+
+        </div>
+    </form>
+
+    <script>
+        $(".1").one('change', function (ev) {
+            $('.2').show()
+        });
+        $(".2").one('change', function (ev) {
+            $('.3').show()
+        });
+        $(".3").one('change', function (ev) {
+            $('.4').show()
+        });
+        $(".4").one('change', function (ev) {
+            $('.5').show()
+        });
+        $(".5").one('change', function (ev) {
+            $('.6').show()
+        });
+        $(".6").one('change', function (ev) {
+            $('.7').show()
+        });
+        $(".7").one('change', function (ev) {
+            $('.8').show()
+        });
+        $(".8").one('change', function (ev) {
+            $('.9').show()
+        });
+        $(".9").one('change', function (ev) {
+            $('.10').show()
+        });
+        // $("#10").one('change', function (ev) {
+        //     $('#10').show()
+        // });
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+</html>

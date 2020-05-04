@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Song Analyzer</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script>
+
+    </script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        a.bar {
+            background-color: lightgrey;
+            color: black;
+            font-size: 30px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-left: 13px;
+            padding-right: 13px;
+
+        }
+
+        .nav {
+            background-color: grey;
+            margin-bottom: 15px
+        }
+
+        a.active {
+            background-color: darkgrey;
+        }
+        #fill11{
+            white-space: pre;
+        }
+    </style>
+
+    <script>
+        function onload(){ 
+            var fill = document.getElementById("fill11");
+            var newline = "\r\n";
+            var nbsp = "\u00a0";
+
+            fill.textContent = "" 
+            if( '{{songs[0]}}' != "")
+                fill.textContent += "Song Title: {{songs[0]}}" + newline
+            if( '{{artists[0]}}' != "")
+                fill.textContent += "Song Artist: {{artists[0]}}" + newline
+            if( '{{sentiment_analysis[0]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[0]}}"+ newline 
+            if('{{explicit_songs[0]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[0]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[0]}}' != "")
+                "There were: {{checked_word[0]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+            
+            if( '{{songs[1]}}' != "")
+                fill.textContent += "Song Title: {{songs[1]}}" + newline
+            if( '{{artists[1]}}' != "")
+                fill.textContent += "Song Artist: {{artists[1]}}" + newline
+            if( '{{sentiment_analysis[1]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[0]}}"+ newline 
+            if('{{explicit_songs[1]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[1]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[1]}}' != "")
+                "There were: {{checked_word[1]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+                        
+            if( '{{songs[2]}}' != "")
+                fill.textContent += "Song Title: {{songs[2]}}" + newline
+            if( '{{artists[2]}}' != "")
+                fill.textContent += "Song Artist: {{artists[2]}}" + newline
+            if( '{{sentiment_analysis[2]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[2]}}"+ newline 
+            if('{{explicit_songs[2]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[2]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[2]}}' != "")
+                "There were: {{checked_word[2]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+                        
+            if( '{{songs[3]}}' != "")
+                fill.textContent += "Song Title: {{songs[3]}}" + newline
+            if( '{{artists[3]}}' != "")
+                fill.textContent += "Song Artist: {{artists[3]}}" + newline
+            if( '{{sentiment_analysis[3]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[3]}}"+ newline 
+            if('{{explicit_songs[3]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[3]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[3]}}' != "")
+                "There were: {{checked_word[3]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+                        
+            if( '{{songs[4]}}' != "")
+                fill.textContent += "Song Title: {{songs[4]}}" + newline
+            if( '{{artists[4]}}' != "")
+                fill.textContent += "Song Artist: {{artists[4]}}" + newline
+            if( '{{sentiment_analysis[4]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[4]}}"+ newline 
+            if('{{explicit_songs[4]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[4]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[4]}}' != "")
+                "There were: {{checked_word[4]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+                        
+            if( '{{songs[5]}}' != "")
+                fill.textContent += "Song Title: {{songs[5]}}" + newline
+            if( '{{artists[5]}}' != "")
+                fill.textContent += "Song Artist: {{artists[5]}}" + newline
+            if( '{{sentiment_analysis[5]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[5]}}"+ newline 
+            if('{{explicit_songs[5]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[5]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[5]}}' != "")
+                "There were: {{checked_word[5]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+                        
+            if( '{{songs[6]}}' != "")
+                fill.textContent += "Song Title: {{songs[6]}}" + newline
+            if( '{{artists[6]}}' != "")
+                fill.textContent += "Song Artist: {{artists[6]}}" + newline
+            if( '{{sentiment_analysis[6]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[6]}}"+ newline 
+            if('{{explicit_songs[6]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[6]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[6]}}' != "")
+                "There were: {{checked_word[6]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+                        
+            if( '{{songs[7]}}' != "")
+                fill.textContent += "Song Title: {{songs[7]}}" + newline
+            if( '{{artists[7]}}' != "")
+                fill.textContent += "Song Artist: {{artists[7]}}" + newline
+            if( '{{sentiment_analysis[7]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[7]}}"+ newline 
+            if('{{explicit_songs[7]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[7]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[7]}}' != "")
+                "There were: {{checked_word[7]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+                        
+            if( '{{songs[8]}}' != "")
+                fill.textContent += "Song Title: {{songs[8]}}" + newline
+            if( '{{artists[8]}}' != "")
+                fill.textContent += "Song Artist: {{artists[8]}}" + newline
+            if( '{{sentiment_analysis[8]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[8]}}"+ newline 
+            if('{{explicit_songs[8]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[8]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[8]}}' != "")
+                "There were: {{checked_word[8]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+                        
+            if( '{{songs[9]}}' != "")
+                fill.textContent += "Song Title: {{songs[9]}}" + newline
+            if( '{{artists[9]}}' != "")
+                fill.textContent += "Song Artist: {{artists[9]}}" + newline
+            if( '{{sentiment_analysis[9]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[9]}}"+ newline 
+            if('{{explicit_songs[9]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[9]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[9]}}' != "")
+                "There were: {{checked_word[9]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+                        
+            if( '{{songs[10]}}' != "")
+                fill.textContent += "Song Title: {{songs[10]}}" + newline
+            if( '{{artists[10]}}' != "")
+                fill.textContent += "Song Artist: {{artists[10]}}" + newline
+            if( '{{sentiment_analysis[10]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[00]}}"+ newline 
+            if('{{explicit_songs[10]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[10]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[10]}}' != "")
+                "There were: {{checked_word[10]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+                        
+            if( '{{songs[1]}}' != "")
+                fill.textContent += "Song Title: {{songs[1]}}" + newline
+            if( '{{artists[1]}}' != "")
+                fill.textContent += "Song Artist: {{artists[1]}}" + newline
+            if( '{{sentiment_analysis[1]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[0]}}"+ newline 
+            if('{{explicit_songs[1]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[1]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[1]}}' != "")
+                "There were: {{checked_word[1]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+            // document.getElementById("fill11").textContent = "{{songs[0]}} \r\n... {{artists[0]}} {{sentiment_analysis[0]}} {{explicit_songs[0]}} {{checked_word[0]}}"
+            // document.getElementById("fill12").textContent = '{{songs[1]}} \r\n... {{artists[1]}} {{sentiment_analysis[1]}} {{explicit_songs[1]}} {{checked_word[1]}}'
+
+
+
+
+
+            var fill = document.getElementById("fill12");
+            var newline = "\r\n";
+            var nbsp = "\u00a0";
+
+            fill.textContent = "" 
+            if( '{{songs[0]}}' != "")
+                fill.textContent += "Song Title: {{songs[0]}}" + newline
+            if( '{{artists[0]}}' != "")
+                fill.textContent += "Song Artist: {{artists[0]}}" + newline
+            if( '{{sentiment_analysis[0]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[0]}}"+ newline 
+            if('{{explicit_songs[0]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[0]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[0]}}' != "")
+                "There were: {{checked_word[0]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+            
+            if( '{{songs[1]}}' != "")
+                fill.textContent += "Song Title: {{songs[1]}}" + newline
+            if( '{{artists[1]}}' != "")
+                fill.textContent += "Song Artist: {{artists[1]}}" + newline
+            if( '{{sentiment_analysis[1]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[0]}}"+ newline 
+            if('{{explicit_songs[1]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[1]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[1]}}' != "")
+                "There were: {{checked_word[1]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+                        
+            if( '{{songs[2]}}' != "")
+                fill.textContent += "Song Title: {{songs[2]}}" + newline
+            if( '{{artists[2]}}' != "")
+                fill.textContent += "Song Artist: {{artists[2]}}" + newline
+            if( '{{sentiment_analysis[2]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[2]}}"+ newline 
+            if('{{explicit_songs[2]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[2]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[2]}}' != "")
+                "There were: {{checked_word[2]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+                        
+            if( '{{songs[3]}}' != "")
+                fill.textContent += "Song Title: {{songs[3]}}" + newline
+            if( '{{artists[3]}}' != "")
+                fill.textContent += "Song Artist: {{artists[3]}}" + newline
+            if( '{{sentiment_analysis[3]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[3]}}"+ newline 
+            if('{{explicit_songs[3]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[3]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[3]}}' != "")
+                "There were: {{checked_word[3]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+                        
+            if( '{{songs[4]}}' != "")
+                fill.textContent += "Song Title: {{songs[4]}}" + newline
+            if( '{{artists[4]}}' != "")
+                fill.textContent += "Song Artist: {{artists[4]}}" + newline
+            if( '{{sentiment_analysis[4]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[4]}}"+ newline 
+            if('{{explicit_songs[4]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[4]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[4]}}' != "")
+                "There were: {{checked_word[4]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+                        
+            if( '{{songs[5]}}' != "")
+                fill.textContent += "Song Title: {{songs[5]}}" + newline
+            if( '{{artists[5]}}' != "")
+                fill.textContent += "Song Artist: {{artists[5]}}" + newline
+            if( '{{sentiment_analysis[5]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[5]}}"+ newline 
+            if('{{explicit_songs[5]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[5]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[5]}}' != "")
+                "There were: {{checked_word[5]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+                        
+            if( '{{songs[6]}}' != "")
+                fill.textContent += "Song Title: {{songs[6]}}" + newline
+            if( '{{artists[6]}}' != "")
+                fill.textContent += "Song Artist: {{artists[6]}}" + newline
+            if( '{{sentiment_analysis[6]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[6]}}"+ newline 
+            if('{{explicit_songs[6]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[6]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[6]}}' != "")
+                "There were: {{checked_word[6]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+                        
+            if( '{{songs[7]}}' != "")
+                fill.textContent += "Song Title: {{songs[7]}}" + newline
+            if( '{{artists[7]}}' != "")
+                fill.textContent += "Song Artist: {{artists[7]}}" + newline
+            if( '{{sentiment_analysis[7]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[7]}}"+ newline 
+            if('{{explicit_songs[7]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[7]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[7]}}' != "")
+                "There were: {{checked_word[7]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+                        
+            if( '{{songs[8]}}' != "")
+                fill.textContent += "Song Title: {{songs[8]}}" + newline
+            if( '{{artists[8]}}' != "")
+                fill.textContent += "Song Artist: {{artists[8]}}" + newline
+            if( '{{sentiment_analysis[8]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[8]}}"+ newline 
+            if('{{explicit_songs[8]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[8]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[8]}}' != "")
+                "There were: {{checked_word[8]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+                        
+            if( '{{songs[9]}}' != "")
+                fill.textContent += "Song Title: {{songs[9]}}" + newline
+            if( '{{artists[9]}}' != "")
+                fill.textContent += "Song Artist: {{artists[9]}}" + newline
+            if( '{{sentiment_analysis[9]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[9]}}"+ newline 
+            if('{{explicit_songs[9]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[9]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[9]}}' != "")
+                "There were: {{checked_word[9]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+                        
+            if( '{{songs[10]}}' != "")
+                fill.textContent += "Song Title: {{songs[10]}}" + newline
+            if( '{{artists[10]}}' != "")
+                fill.textContent += "Song Artist: {{artists[10]}}" + newline
+            if( '{{sentiment_analysis[10]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[00]}}"+ newline 
+            if('{{explicit_songs[10]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[10]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[10]}}' != "")
+                "There were: {{checked_word[10]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+                        
+            if( '{{songs[1]}}' != "")
+                fill.textContent += "Song Title: {{songs[1]}}" + newline
+            if( '{{artists[1]}}' != "")
+                fill.textContent += "Song Artist: {{artists[1]}}" + newline
+            if( '{{sentiment_analysis[1]}}' != "")
+                fill.textContent += "Sentiment Analysis Scores: {{sentiment_analysis[0]}}"+ newline 
+            if('{{explicit_songs[1]}}' == "True")
+                fill.textContent+= "Yes this song is explicit"+ newline 
+            if('{{explicit_songs[1]}}' == "False")
+                fill.textContent+= "No this song is not explicit"+ newline 
+            if('{{explicit_songs[1]}}' != "")
+                "There were: {{checked_word[1]}}" + "of the words you wanted me to check in this song";
+            fill.textContent+= newline +newline + newline +newline+ newline +newline+ newline +newline+ newline +newline+ newline +newline
+            // document.getElementById("fill11").textContent = "{{songs[0]}} \r\n... {{artists[0]}} {{sentiment_analysis[0]}} {{explicit_songs[0]}} {{checked_word[0]}}"
+            // document.getElementById("fill12").textContent = '{{songs[1]}} \r\n... {{artists[1]}} {{sentiment_analysis[1]}} {{explicit_songs[1]}} {{checked_word[1]}}'
+
+
+        }
+    </script>
+</head>
+
+<body onload="onload()">
+    <nav class="nav">
+        <div class="container ">
+            <a class="bar" href="/">Home</a>
+            <a class="bar active" href="{{ url_for('songs') }}">Songs</a>
+            <a class="bar" href="{{ url_for('years') }}">Years</a>
+            <a class="bar" href="{{ url_for('propsal') }}">Project Proposal</a>
+            <a class="bar" href="{{ url_for('writeup') }}">Writeup</a>
+            <div style="float: right; text-align: right; color: white">
+                <h1>By: Alvie Stoddard</h1>
+                <h5>for Problem Solving and Software Design</h5>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h2 style="font-size: 2.5em; text-align: center">Analysis</h2>
+        <h2 style="font-size: 1.5em; text-align: center">Results</h2>
+        <row>
+            <div class="col-lg-6">
+                <h3>{{list1Name}}</h3>
+                <h5 style="font-size: 1em;""><div id="fill11" ></div></h5>
+            </div>
+            <h3>{{list2Name}}</h3>
+            <div class="col-lg-6">
+                <h5 style="font-size: 1em;""><div id="fill12" ></div></h5>
+            </div>
+        <!-- <h1>Songs {{songs}}</h1>
+        <h1>Artist {{artists}}</h1>
+        <h1>senti {{sentiment_analysis}}</h1>
+        <h1>Explicit {{explicit_songs}}</h1>
+        <h1>Checked words {{checked_word}}</h1>
+    </row>
+        <h1>Songs2 {{songs_two}}</h1>
+        <h1>Artist2 {{artists_two}}</h1>
+        <h1>senti2 {{sentiment_analysis_two}}</h1>
+        <h1>Explicit2 {{explicit_songs_two}}</h1>
+        <h1>Checked words2 {{checked_word_two}}</h1> -->
+
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+</html>

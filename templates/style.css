@@ -1,0 +1,19 @@
+a {
+    background-color: lightgrey;
+    color: black;
+    font-size: 30px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 13px;
+    padding-right: 13px;
+
+}
+
+.nav {
+    background-color: grey;
+    margin-bottom: 15px
+}
+
+a.active {
+    background-color: darkgrey;
+}

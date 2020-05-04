@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+    <title>Song Analyzer</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script>
+
+    </script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        a.bar {
+            background-color: lightgrey;
+            color: black;
+            font-size: 30px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-left: 13px;
+            padding-right: 13px;
+
+        }
+
+        .nav {
+            background-color: grey;
+            margin-bottom: 15px
+        }
+
+        a.active {
+            background-color: darkgrey;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="container ">
+            <a class="bar" href="/">Home</a>
+            <a class="bar" href="{{ url_for('songs') }}">Songs</a>
+            <a class="bar" href="{{ url_for('years') }}">Years</a>
+            <a class="bar" href="{{ url_for('propsal') }}">Project Proposal</a>
+            <a class="bar active" href="{{ url_for('writeup') }}">Writeup</a>
+            <div style="float: right; text-align: right; color: white">
+                <h1>By: Alvie Stoddard</h1>
+                <h5>for Problem Solving and Software Design</h5>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <p> For my project, I was able to complete most of what I hoped to complete. This project had more complexity
+            than expected. I had hoped to get access to the MusixMatch’s full API, however, after attempting to contact
+            the company’s sales channel, I did not receive a response. Instead, I proceeded to use lyricsgenius, a
+            python package that scrapes Genius’ lyrics.
+        </p>
+        <p> Sentiment Analysis - The Sentiment Analysis was done using Vader Sentiment instead of NLTK analysis because
+            I saw most other projects were using either TextBlob or NLTK Sentiment Analysis. After reading about Vader
+            Sentiment I felt that the way it was running the analysis was more effective. I also liked that using Vader
+            Sentiment since it differentiated the project from others (similar projects have used TextBlob or NLTK). I
+            ran the Sentiment Analysis on the lyrics but I did not get a chance to determine how to parse the result so
+            the results given on the website are the results that Vader Sentiment gives. In the future, I would like to
+            add parsing to the project and create visual charts to further represent the results.
+        </p>
+        <p> Explicitness Analysis - I also found Explicitness using profanity_check, another python package. I did this
+            because my original Assignment 2 was able to find the Explicitness from the result returned from MusixMatch.
+            I basically did this to provide feature parody.
+        </p>
+
+        <p> Finally, a new feature I created was the ability to count the number of times a word appeared in the song.
+            Again, this feature was inspired by other similar projects online. I, of course, also added a web interface
+            to make it more accessible than solely the API.
+        </p>
+
+        <p> Another goal of mine was to allow users to also run text analysis on song lyrics from Billboards top charts
+            for specified years. I did not have time to implement this because the other features took far longer than I
+            expected to implement. As a consolation, I did add the Billboard top charts so users could search those to
+            find the songs but they would then have to implement those into the songs view so it would not be automatic.
+            To do this, I used a module called Billboard. However, this module does not provide top charts for years out
+            of the box. Instead, I had to find some previous Github Pull Requests that were adding this feature. Due to
+            changes on billboards website, these changes were never implemented and no longer worked. So, to provide
+            this functionality, I had to take what was implemented, find differences between the old and new package,
+            and implement a new version by merging the current working version with the old version thus providing the
+            functionality I was looking for. Again, this took several hours but I did eventually get it to work.
+        </p>
+        <p> Again, this project had more complexity than expected which was great because it gave me additional
+            opportunities to apply what I learned. I was able to use just about everything we learned including
+            dictionaries, lists, API’s, and even Classes! 
+        </p>
+    </div>
+    <script>
+        $(".1").one('change', function (ev) {
+            $('.2').show()
+        });
+        $(".2").one('change', function (ev) {
+            $('.3').show()
+        });
+        $(".3").one('change', function (ev) {
+            $('.4').show()
+        });
+        $(".4").one('change', function (ev) {
+            $('.5').show()
+        });
+        $(".5").one('change', function (ev) {
+            $('.6').show()
+        });
+        $(".6").one('change', function (ev) {
+            $('.7').show()
+        });
+        $(".7").one('change', function (ev) {
+            $('.8').show()
+        });
+        $(".8").one('change', function (ev) {
+            $('.9').show()
+        });
+        $(".9").one('change', function (ev) {
+            $('.10').show()
+        });
+        // $("#10").one('change', function (ev) {
+        //     $('#10').show()
+        // });
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+</html>
